@@ -9,9 +9,14 @@ app.use(cors())
 app.use(express.json())
 
 // DATA BASE CONNECTION
+//mongoose.connect("mongodb+srv://admin:gjP9xrfKcSQf2cTP@store.gc4sq.mongodb.net/products?authSource=admin&replicaSet=atlas-13cxb0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true",
+//{useNewUrlParser:true})
+mongoose.connect("mongodb://localhost:27017/Productos").catch(
+    (error)=>{
+        console.error(error);
+    }
+)
 
-mongoose.connect("mongodb+srv://admin:gjP9xrfKcSQf2cTP@store.gc4sq.mongodb.net/products?authSource=admin&replicaSet=atlas-13cxb0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true",
-{useNewUrlParser:true})
 
 app.post('/addProduct',async(req,res)=>{
 
@@ -27,9 +32,14 @@ app.post('/addProduct',async(req,res)=>{
         estado:estado,
         descripcion:descripcion
     }
-    )
-    await producto.save()
-    res.send("Registrado exitosamente!")
+    );
+    try{
+        await producto.save()
+        res.send("Registrado exitosamente!")
+    }catch(err){
+        res.send("Ocurrio un error")
+    }
+    
 })
 
 app.get('/readData',async(req,res)=>{
