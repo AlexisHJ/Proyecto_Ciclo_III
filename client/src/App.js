@@ -1,16 +1,17 @@
 import './App.css';
-import AddProduct from './components/Productos/AddProduct';
-import ListaProducto from './components/Productos/ListaProducto'
+//import AddProduct from './components/Productos/AddProduct';
+//import ListaProducto from './components/Productos/ListaProducto';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from  './Routes'
 
 
 function App() {
-
-
   return (
-    <div className ='App'>
-      <AddProduct />
-      <ListaProducto />
-    </div>
+    <Router>
+      <div className ='App'>
+        <Routes />
+      </div>
+    </Router>
   );
 }
 
