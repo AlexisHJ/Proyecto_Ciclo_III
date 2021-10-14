@@ -16,10 +16,22 @@ button {
   border-radius: 14px;
 }
 
+.edicion {
+  width: 100px;
+  height: 40px;
+  font-size: 18px;
+  margin: 5px;
+  border-radius: 14px;
+}
 .producto {
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.listaProductos {
+  width: 100%;
+  margin: 100px;
 }
